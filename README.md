@@ -110,9 +110,7 @@ s = {
 ### Pan
 We achieve this effect by adjusting the volume in the left and right channels separately, so that the left channel starts out at full volume and ends at 0 volume (and vice versa for the right channel).
 
-In particular, if our sound is NN samples long, then:
-* We scale the first sample in the right channel by 0, the second by $\frac{1}{N-1}$, the third by $\frac{2}{N-1}$,... and the last by 1.
-* At the same time, we scale the first sample in the left channel by 1, the second by $1 - \frac{1}{N-1}$, the third by $1 - \frac{2}{N-1}$,... and the last by 0.
+In particular, if our sound is N samples long, then we scale the first sample in the right channel by 0, the second by $\frac{1}{N-1}$, the third by $\frac{2}{N-1}$,... and the last by 1. At the same time, we scale the first sample in the left channel by 1, the second by $1 - \frac{1}{N-1}$, the third by $1 - \frac{2}{N-1}$,... and the last by 0.
 
 ### Removing Vocal from Music
 For each sample in the (stereo) input sound, we compute (left-right), i.e., the difference between the left and right channels at that point in time, and use the result as the corresponding sample in the (mono) output sound.
